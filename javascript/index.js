@@ -18,7 +18,7 @@ function printTime() {
 }
 
 function printMinutes() {
-  // ... your code goes here
+  // ... your code goes here4r
 }
 
 function printSeconds() {
@@ -56,10 +56,10 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  btnLeftElement.setAttribute("class", "btn.start")
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+  btnRightElement.setAttribute("class", "btn.split")
 });

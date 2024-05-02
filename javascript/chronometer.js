@@ -26,21 +26,27 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    
+    if (value < 10) {
+      return `0${value}`; 
+    } else {
+      return `${value}`; 
+    }
   }
 
   stop() {
-    // ... your code goes here
+    clearInterval(this.IntervalID)
   }
 
   reset() {
-    // ... your code goes here
+    this.currentTime.innerHtml = 0
   }
 
   split() {
-    // ... your code goes here
+    let formattedMinutes = this.computeTwoDigitNumber(this.getMinutes());
+    let formattedSeconds = this.computeTwoDigitNumber(this.getSeconds());
+    
+    return `${formattedMinutes}:${formattedSeconds}`;
   }
-}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
