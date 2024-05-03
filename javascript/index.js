@@ -13,12 +13,10 @@ const milDecElement = document.getElementById('milDec');
 const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
-function printTime() {
-  // ... your code goes here
-}
+function printTime() 
 
 function printMinutes() {
-  // ... your code goes here4r
+  return start(getMinutes(computeTwoDigitNumber(value)))
 }
 
 function printSeconds() {
@@ -56,10 +54,24 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  btnLeftElement.setAttribute("class", "btn.start")
+  if(btnLeftElement.classList.contains("btn.start")){
+    chronometer.start(printTime);
+    btnLeftElement.textContent= "STOP";
+    btnLeftElement.classList.replace("btn.start","btn.stop");
+  } else {
+    chronometer.stop();
+    btnLeftElement.textContent = "START";
+    btnLeftElement.classList.replace ("btn.stop", "btn.start");  }
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  btnRightElement.setAttribute("class", "btn.split")
+  if(btnRightElement.classList.contains("btn.reset")){
+    btnRightElement.textContent = "SPLIT";
+    btnRightElement.classList.replace("btn.reset", "btn.split")
+  } else {
+    btnRightElement.textContent = "RESET";
+    btnRightElement.classList.replace("btn.split", "btn.reset")
+  }
 });
+
