@@ -1,17 +1,17 @@
 class Chronometer {
   constructor() {
     this.currentTime = 0;
-    this.IntervalID = null;
+    this.intervalId = null;
   }
 
   start(callback) {
     if (typeof callback === 'function') {
-      this.IntervalID = setInterval(() => {
+      this.intervalId = setInterval(() => {
         this.currentTime++;
         callback();
       }, 1000);
     } else {
-      this.IntervalID = setInterval(() => {
+      this.intervalId = setInterval(() => {
         this.currentTime++;
       }, 1000);
     }
@@ -34,11 +34,11 @@ class Chronometer {
   }
 
   stop() {
-    clearInterval(this.IntervalID)
+    clearInterval(this.intervalId)
   }
 
   reset() {
-    this.currentTime.innerHtml = 0
+    this.currentTime = 0
   }
 
   split() {
@@ -47,7 +47,7 @@ class Chronometer {
     
     return `${formattedMinutes}:${formattedSeconds}`;
   }
-
+}
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
